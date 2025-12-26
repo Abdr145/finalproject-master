@@ -19,6 +19,6 @@ CREATE TABLE t_movies(
         REFERENCES t_directors(director_id) ON DELETE SET NULL,
     genre_id BIGINT,
     CONSTRAINT fk_genre FOREIGN KEY (genre_id)
-        t_genres(genre_id) ON DELETE SET NULL
+        REFERENCES t_genres(genre_id) ON DELETE SET NULL
 );
 
