@@ -6,6 +6,7 @@ import com.example.finalproject.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,6 +17,7 @@ public class MovieApi {
     private final MovieService movieService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     public ResponseEntity<?> getAll(){
         return new ResponseEntity<>(movieService.getAll(), HttpStatus.OK);
     }
