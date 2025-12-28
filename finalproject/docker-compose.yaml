@@ -7,10 +7,10 @@ services:
     depends_on:
       - database-service
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database-service:5432/postgres
       - SPRING_DATASOURCE_USERNAME=magzhan
       - SPRING_DATASOURCE_PASSWORD=magzhan
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=none
       - SPRING_JPA_SHOW_SQL=true
     ports:
       - 4444:8080
